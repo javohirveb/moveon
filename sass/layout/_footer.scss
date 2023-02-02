@@ -1,0 +1,78 @@
+@use "../abstract/variables" as vars;
+@use '../abstract/mixins';
+
+.footer {
+    position: relative;
+    margin-top: 200px;
+
+    &-bg {
+        position: absolute;
+        width: 100%;
+        height: 80vh;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+    &-top {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__about {
+        display: none;
+    }
+
+    &__about,
+    &__contact,
+    &__social {
+        h1 {
+            font-weight: 700;
+            font-size: 28px;
+            color: vars.$white;
+        }
+
+        p {
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 124%;
+            color: vars.$white;
+        }
+    }
+
+    &__social {
+        ul {
+            display: flex;
+            gap: 20px;
+        }
+    }
+
+    hr {
+        margin: 40px 0 10px;
+    }
+
+
+
+    &__copyright {
+        p {
+            margin: 0;
+            padding: 20px 0;
+            text-align: center;
+            font-weight: 400;
+            font-size: 20px;
+            color: vars.$white;
+        }
+    }
+}
+
+@include mixins.media-lg {
+    .footer {
+        &-top {
+            flex-direction: row;
+            gap: 100px;
+        }
+        &__about {
+            display: block;
+        }
+    }
+}

@@ -1,0 +1,159 @@
+@use "abstract/variables" as vars;
+@use "abstract/mixins";
+@use "base/base";
+@use "layout/index";
+
+.possibilities {
+    margin-top: 140px;
+
+    &__title {
+        text-align: center;
+        font-weight: 500;
+        font-size: 46px;
+        margin: 0;
+    }
+
+    &__subtitle {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 124%;
+        text-align: center;
+        letter-spacing: 0.08em;
+        color: #ABABAB;
+        margin: 0;
+    }
+
+    &__main {
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+    }
+
+    &__item {
+        display: flex;
+        text-align: right;
+        gap: 20px;
+        width: 100%;
+
+        &-content {
+            width: 80%;
+
+            h3 {
+                font-weight: 500;
+                font-size: 22px;
+                line-height: 124%;
+                color: #000000;
+                margin: 0;
+            }
+
+            p {
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 124%;
+                color: #B0B0B0;
+                margin: 0;
+            }
+        }
+
+        &-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: vars.$main-bg;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            i {
+                font-size: 25px;
+                color: #fff;
+            }
+        }
+    }
+
+    &__left {
+        .possibilities__item {
+            flex-direction: row-reverse;
+
+            &-content {
+                h3 {
+                    text-align: left;
+                }
+
+                p {
+                    text-align: left;
+                }
+            }
+        }
+    }
+
+    &__middle {
+        text-align: center;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &__right {
+        .possibilities__item {
+            flex-direction: row-reverse;
+
+            &-content {
+                h3 {
+                    text-align: left;
+                }
+
+                p {
+                    text-align: left;
+                }
+            }
+        }
+    }
+}
+
+@include mixins.media-sm {
+    .possibilities {
+        &__middle {
+            img {
+                width: 300px;
+            }
+        }
+    }
+}
+
+@include mixins.media-lg {
+    .possibilities {
+        &__main {
+            flex-direction: row;
+        }
+
+        &__item {
+            width: 350px;
+        }
+
+        &__left {
+            .possibilities__item {
+                flex-direction: row;
+
+                &-content {
+                    h3 {
+                        text-align: right;
+                    }
+
+                    p {
+                        text-align: right;
+                    }
+                }
+            }
+        }
+    }
+}
